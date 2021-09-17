@@ -1,5 +1,7 @@
 package com.techelevator;
 
+import java.util.Scanner;
+
 /*
  In case you've ever pondered how much you weight on Mars, here's the calculation:
  	Wm = We * 0.378
@@ -18,8 +20,23 @@ Enter a series of Earth weights (space-separated): 98 235 185
  */
 public class MartianWeight {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
+        System.out.println("Welcome to Mars the easy weight loss planet");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the weight(s) you would like to convert(separated by a space): ");
+        String earthWeightStr = scanner.nextLine();
 
-	}
+        String[] earthWeights = earthWeightStr.split(" ");
+        for (int i = 0; i < earthWeights.length; i++) {
+
+        	double earthWeight = Double.parseDouble(earthWeights[i]);
+            double weightConversion = earthWeight * .378;
+            int marsWeight = (int) weightConversion;
+             System.out.println(earthWeights[i] + " lbs on Earth or " + marsWeight + " lbs on Mars.");
+
+        }
+
+
+    }
 
 }
